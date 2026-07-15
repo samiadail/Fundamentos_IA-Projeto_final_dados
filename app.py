@@ -42,7 +42,7 @@ def prever():
         
         preco = modelo.predict(carro)[0]
         return jsonify({
-            "preço":round(float(preco), 2)
+            "preço teste":round(float(preco), 2)
         })
 
 
