@@ -4,13 +4,14 @@
 
 <p align="center">
 
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase)
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs)
 
 </p>
 
@@ -18,11 +19,13 @@
 
 # 📖 Sobre o Projeto
 
-O **AutoPreço** é uma aplicação web desenvolvida para estimar o valor de veículos usados utilizando técnicas de **Machine Learning**.
+O **AutoPreço** é uma aplicação web desenvolvida como projeto final do curso **Fundamentos de IA e Análise de Dados** do **SENAI Americana**.
 
-O sistema recebe informações do veículo fornecidas pelo usuário, envia esses dados para uma API desenvolvida em **Flask**, realiza a predição utilizando um modelo treinado com **Scikit-Learn** e retorna uma estimativa do valor do veículo em tempo real.
+O sistema utiliza um modelo de **Machine Learning** treinado em **Python** para estimar o valor de veículos usados com base nas informações fornecidas pelo usuário.
 
-A aplicação possui uma interface moderna, responsiva e integrada a um modelo 3D interativo para proporcionar uma melhor experiência ao usuário.
+A aplicação integra um **Front-End moderno desenvolvido em React** com uma **API REST em Flask**, responsável por processar os dados, executar a predição e retornar o valor estimado em tempo real.
+
+Além da estimativa, a interface oferece uma experiência mais intuitiva através de um modelo 3D interativo do veículo e uma apresentação visual dos resultados.
 
 ---
 
@@ -38,51 +41,70 @@ A aplicação possui uma interface moderna, responsiva e integrada a um modelo 3
 
 # ✨ Funcionalidades
 
-- Estimativa inteligente do preço de veículos
-- Modelo de Machine Learning treinado em Python
-- API REST utilizando Flask
-- Interface moderna e responsiva
-- Modelo 3D interativo
-- Exibição do nível de confiança da previsão
-- Estimativa de depreciação
-- Compartilhamento dos resultados
-- Cópia rápida da estimativa
-- Compatível com Desktop e dispositivos móveis
+- 🚗 Estimativa inteligente do valor de veículos usados
+- 🤖 Modelo de Machine Learning treinado em Python
+- 🌐 API REST utilizando Flask
+- 🎨 Interface moderna e responsiva
+- 🧊 Visualização 3D interativa do veículo
+- 📊 Exibição do nível de confiança da previsão
+- 📉 Estimativa de depreciação
+- 📋 Copiar resultado
+- 📤 Compartilhar resultado
+- 📱 Compatível com computadores, tablets e smartphones
 
 ---
 
-# 🧠 Variáveis utilizadas pelo Modelo
+# 🧠 Modelo de Machine Learning
 
-O modelo de Machine Learning utiliza quatro variáveis para realizar a estimativa:
+O modelo foi desenvolvido utilizando o algoritmo **Linear Regression** da biblioteca **Scikit-Learn**.
+
+Durante o treinamento foram utilizadas informações de veículos usados para que o modelo aprendesse a identificar padrões capazes de estimar o valor de mercado de um automóvel.
+
+As variáveis utilizadas pelo modelo são:
 
 - Ano de fabricação
 - Quilometragem
 - Motorização
 - Quantidade de revisões
 
+O resultado da previsão é retornado em formato JSON pela API e apresentado automaticamente na interface.
+
 ---
 
-# 🏗 Arquitetura
+# 📊 Base de Dados
+
+O treinamento do modelo foi realizado utilizando o arquivo:
 
 ```
-                Usuário
-                    │
-                    ▼
-        Interface Web (React)
-                    │
-          Requisição HTTP (POST)
-                    │
-                    ▼
-          API REST (Flask)
-                    │
-                    ▼
-      Modelo de Machine Learning
-                    │
-                    ▼
-        Resposta JSON com o valor
-                    │
-                    ▼
-      Interface apresenta o resultado
+dataset_carros_usados.csv
+```
+
+O conjunto de dados contém registros de veículos usados e suas respectivas características, permitindo o treinamento do modelo de regressão linear.
+
+---
+
+# 🏗 Arquitetura do Sistema
+
+```text
+                 Usuário
+                     │
+                     ▼
+      Interface Web (React + TypeScript)
+                     │
+           Requisição HTTP (POST)
+                     │
+                     ▼
+             API REST (Flask)
+                     │
+                     ▼
+     Modelo de Machine Learning
+        (Linear Regression)
+                     │
+                     ▼
+        Resposta JSON da API
+                     │
+                     ▼
+      Exibição da estimativa no Front-End
 ```
 
 ---
@@ -105,12 +127,12 @@ O modelo de Machine Learning utiliza quatro variáveis para realizar a estimativ
 - Python
 - Flask
 - Flask-CORS
+- python-dotenv
 
 ## Machine Learning
 
 - Scikit-Learn
 - Pandas
-- NumPy
 
 ## Banco de Dados
 
@@ -118,14 +140,14 @@ O modelo de Machine Learning utiliza quatro variáveis para realizar a estimativ
 
 ## Deploy
 
-- Render
 - Lovable
+- Render
 
 ---
 
-# 🚀 Como Executar
+# 🚀 Como Executar Localmente
 
-## Clonar o projeto
+## 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/samiadail/Fundamentos_IA-Projeto_final_dados.git
@@ -133,76 +155,111 @@ git clone https://github.com/samiadail/Fundamentos_IA-Projeto_final_dados.git
 
 ---
 
-## Front-End
+## 2. Acessar a pasta
 
 ```bash
-npm install
-
-npm run dev
+cd Fundamentos_IA-Projeto_final_dados
 ```
 
 ---
 
-## Back-End
+## 3. Criar um ambiente virtual
+
+```bash
+python -m venv .venv
+```
+
+---
+
+## 4. Ativar o ambiente virtual
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
+## 5. Instalar as dependências
 
 ```bash
 pip install -r requirements.txt
+```
 
+---
+
+## 6. Configurar o arquivo `.env`
+
+Crie um arquivo `.env` na raiz do projeto contendo as credenciais necessárias para conexão com o Supabase.
+
+---
+
+## 7. Executar a aplicação
+
+```bash
 python app.py
+```
+
+O servidor será iniciado em:
+
+```
+http://localhost:5000
 ```
 
 ---
 
 # 📂 Estrutura do Projeto
 
-```
-AutoPreço/
+```text
+Fundamentos_IA-Projeto_final_dados/
 
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   ├── assets/
-│   └── components/
-│
-├── backend/
-│   ├── app.py
-│   ├── model.pkl
-│   ├── requirements.txt
-│
+├── .venv/
+├── .env
+├── .gitignore
+├── app.py
+├── dataset_carros_usados.csv
+├── requirements.txt
 └── README.md
 ```
-
+<!-- 
 ---
 
 # 📷 Capturas de Tela
 
 ## Página Inicial
 
-> Adicionar screenshot
+> Adicionar screenshot da tela inicial.
+
+---
+
+## Visualização 3D
+
+> Adicionar screenshot do modelo 3D.
 
 ---
 
 ## Resultado da Estimativa
 
-> Adicionar screenshot
-
----
-
-## Modelo 3D
-
-> Adicionar screenshot
+> Adicionar screenshot do resultado.
 
 ---
 
 # 🔮 Melhorias Futuras
 
 - Histórico de consultas
-- Comparação entre veículos
 - Consulta automática por placa
-- Exportação em PDF
-- Dashboard com gráficos
-- Integração com Tabela FIPE
-- Explicação detalhada da previsão utilizando IA
+- Comparação entre veículos
+- Exportação dos resultados em PDF
+- Dashboard com gráficos estatísticos
+- Integração com a Tabela FIPE
+- Explicação detalhada da previsão utilizando IA (Explainable AI) -->
 
 ---
 
@@ -210,11 +267,10 @@ AutoPreço/
 
 **Sami Adail**
 
-GitHub:
-https://github.com/samiadail
+GitHub: https://github.com/samiadail
 
 ---
 
 # 📄 Licença
 
-Projeto desenvolvido para fins educacionais durante o curso **Fundamentos de IA e Análise de Dados** no **SENAI Americana**.
+Projeto desenvolvido para fins educacionais durante o curso **Fundamentos de IA e Análise de Dados** do **SENAI Americana**.
