@@ -37,7 +37,7 @@ def inicio():
         })
 
 
-
+#Método para prever o valor do veículo
 @app.route("/prever", methods=["POST"])
 def prever():
     try:
